@@ -61,3 +61,49 @@ C<sub>out</sub> = G or ( P and C<sub>in</sub>)
 However, its one if the fastest adders and has a good fanout over other parallel prefix adder but the number of dot operators increase with the increase of bits leading to very large number of wires that considered a disadvantage when it come to PnR.
 ![alt text](https://github.com/Mohamed-Ammar/Arithmetic_Circuits/blob/main/Arithmetic/Kogge-StoneAdder/KSA.PNG)
 ___
+## Multipliers
+### Array Multiplier
+We first get each partial product  terms as
+<pre> Z<sub>ij</sub> = A<sub>i</sub>B<sub>j</sub> </pre>
+forming lines of Z<sub>s</sub>
+example of 2 Bit Multiplication
+<pre>      B<sub>1</sub>   B<sub>0</sub>
+      A<sub>1</sub>   A<sub>0</sub>
+_________________
+      A<sub>0</sub>B<sub>1</sub>  A<sub>0</sub>B<sub>0</sub>
+A<sub>1</sub>B<sub>1</sub>  A<sub>1</sub>B<sub>0</sub> 
+__________________
+       Z<sub>01</sub>  Z<sub>00</sub>
+Z<sub>11</sub>    Z<sub>10</sub>
+__________________
+Result </pre>
+So first line module generate the Z at each line then using Full Adders and Half adders as shown to get the Result.
+Its good to notice that Array Multiplier consumes large area but on the other hand gives high throughput
+
+![alt text](https://github.com/Mohamed-Ammar/Arithmetic_Circuits/blob/main/Arithmetic/ArrayMultiplier/Array_Mul.PNG)
+___
+### Wallace-Tree Multiplier
+The basic idea is that the column of Z<sub>i</sub> can be added in any order we only want at the end that the whole elements in the column to be added together along side with the carry that comes from Col<sub>i-1</sub>
+So, we re arrange the el partial products to be as shown below
+
+![alt text](https://github.com/Mohamed-Ammar/Arithmetic_Circuits/blob/main/Arithmetic/WallaceTreeMUL/WT_MUL1.PNG)
+
+Then instantiating Full adders and Half adders to perform the sum want to leave at each column a 2 bits so that the last operation can be done using a fast adder rather than going with FA and HA as it will have higher delay
+![alt text](https://github.com/Mohamed-Ammar/Arithmetic_Circuits/blob/main/Arithmetic/WallaceTreeMUL/WT_MUL2.PNG)
+___
+### DADDA Multiplier
+DADDA multipliers are very similar to Wallace tree multipliers. In fact, they follow pretty much the same algorithm. The main difference is that while the Wallace tree multiplier aims for maximum coverage in any single step, DADDA multipliers may under cover certain steps in order to reduce the total number of adders used.
+This is done using a parameter d in which 
+<pre> d<sub>k+1</sub> = floor(1.5 * d<sub>k</sub>) and d<sub>1</sub> = 2 So d = 2,3,4,6,9,13....
+we start with d = min(M,N) for MxN </pre>
+For every stage starting from LSB position and moving leftwards
+ • If the position has bits less than d, move on
+  • If the position has bits equal to d + 1, use an HA to compress two bits, pushing one result to the next position. The current position would be reduced to d, allowing us to move to the next bit position
+   • If the position has any higher number of bits, use an FA to compress, pushing bits and repeating again from the first step. In other words, this step would keep us looping on the same position until the height in the position reduces to d.
+
+![alt text](https://github.com/Mohamed-Ammar/Arithmetic_Circuits/blob/main/Arithmetic/DaddaMultiplier/dadda.PNG)
+___
+## Reference
+Handbook Of Digital CMOS Technology, Circuits and Systems 
+chapter 11
+by Dr. Karim Abbas
