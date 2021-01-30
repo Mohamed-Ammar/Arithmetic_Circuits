@@ -30,7 +30,7 @@ module CSA(
 	 wire [15:0] sum0,sum1;
 	 
 	 RCA RCA_1 (A[7:0],B[7:0],1'b0,sum0[7:0],cout1);
-    RCA RCA_2 (A[7:0],B[7:0],1'b1,sum1[7:0],cout2);
+         RCA RCA_2 (A[7:0],B[7:0],1'b1,sum1[7:0],cout2);
 	 MUX_sum_bits M2 (sum0[7:0],sum1[7:0],Cin,Sum[7:0]);
 	 MUX_2_to_1   M1 (cout1,cout2,Cin,Cin_next);
 
