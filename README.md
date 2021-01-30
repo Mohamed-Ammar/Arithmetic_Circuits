@@ -34,6 +34,7 @@ Its considered to have large area yet gives good performance so its a good choic
 It uses to carry chain and a multiplexer it the addition operation is done in the first add chain assuming Cin is 0 and in the other chain assuming Cin is 1 so as soon as the carry arrive it just selects from the mux which output of which chain to we want.
 Implemented here a 16bit Carry Select Adder in which each add chain is an 8 bit ripple carry adder.
 ![alt text](https://github.com/Mohamed-Ammar/Arithmetic_Circuits/blob/main/Arithmetic/CarrySelectAdder/CSA.PNG)
+
 *The shown is a 4bit just for illustration.* ***This not the implemented***
 ___
 ### Carry Look-Ahead Adder
