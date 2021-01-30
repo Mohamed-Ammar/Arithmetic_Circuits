@@ -49,3 +49,15 @@ Carry-lookahead depends on two things:
 *The shown is a 4bit just for illustration.* ***This not the implemented***
 ___
 ### Kogge-Stone Adder
+Kogge-Stone Adder is an example for the parallel prefix adders where we make use of group generate (G) and group propagate (P) to be able to get the carry in any bit position by the use of the initial carry Cin
+The dot operator gets the current G and P knowing the previous ones 
+<pre/>P   = P<sub>i</sub> and P<sub>iprev</sub>
+G = G<sub>i</sub> or ( P<sub>i</sub> and G<sub>iprev</sub>)
+</pre>
+The sum unit performs the sum and calculates the carry using the grouped generate and propagate that calculated in the dot module
+<pre/>Sum   = P<sub>i</sub> xor C<sub>in</sub>
+C<sub>out</sub> = G or ( P and C<sub>in</sub>)
+</pre>
+However, its one if the fastest adders and has a good fanout over other parallel prefix adder but the number of dot operators increase with the increase of bits leading to very large number of wires that considered a disadvantage when it come to PnR.
+![alt text](https://github.com/Mohamed-Ammar/Arithmetic_Circuits/blob/main/Arithmetic/Kogge-StoneAdder/KSA.PNG)
+___
