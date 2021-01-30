@@ -1,6 +1,6 @@
 # Arithmetic Circuits
 Adding binary numbers is one of the most important operation in digital computers. Multiplying binary numbers is also important but analyzing that multiplication is built using multiple add operation. So, We concern about adders and how fast it could be.
-Here are some types of adders starting by the simple Ripple Carry Adder moving forward into more faster adders.
+Here are some types of adders starting by the simple Ripple Carry Adder moving forward to faster adders.
 *Ripple Carry Adder, Carry Bypass Adder, Carry select Adder, Look Ahead Adder and Kogge-Stone Adder
 Besides as example for Multipliers 
 Array Multiplier, Wallace Tree Multiplier and Dadda Multiplier* 
