@@ -26,7 +26,7 @@ The idea here is to get the carry ready in time less than that of the simple rip
 So rather than using 16-bit ripple carry adder and wait for Cout to come at the last bit we can divide it into (2) 8-bit Carry Bypass Adder in which we wait for the Cout if its propagating only 
 I used a Setup module to calculate the P<sub>s</sub> and according to its value assign the Carry. *P<sub>i</sub> = A<sub>i</sub> xor B<sub>i</sub>*
 Carry Bypass Adder is built using smaller ripple carry adder by dividing the total bits 
-Implemented here is a 16-bit using (2) 8-bit ripple carry adder 
+Implemented here is a 16-bit using (2) 8-bit ripple carry adder.
 ![alt text](https://github.com/Mohamed-Ammar/Arithmetic_Circuits/blob/main/Arithmetic/CarryBypassAdder/CBA.PNG)
 ___
 ### Carry Select Adder
