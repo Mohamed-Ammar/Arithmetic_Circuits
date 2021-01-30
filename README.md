@@ -9,7 +9,7 @@ Array Multiplier, Wallace Tree Multiplier and Dadda Multiplier*
 ###  Half Adder 
 Simple implementations of the half adder to be used in building more complex circuits.
 <pre/>S    = A xor B
-Cout = A and B
+Cout = A and B </pre>
 ![alt text](https://github.com/Mohamed-Ammar/Arithmetic_Circuits/blob/main/Arithmetic/HalfAdder/Half-adder-circuit-diagram.png)
 
 ### Full Adder
